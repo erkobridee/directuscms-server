@@ -1,6 +1,4 @@
 
-setup-for-sqlite:
-	mkdir database
+setup-base-dirs:
 	mkdir uploads
 	mkdir extensions
-	chmod 777 database uploads extensions

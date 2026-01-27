@@ -14,10 +14,6 @@ mkdir extensions
 
 mkdir uploads
 
-mkdir database
-
-chmod 777 database uploads extensions
-
 ```
 
 or
@@ -35,22 +31,14 @@ docker compose up -d
 ```
 
 > http://localhost:8055
+>
+> use the email and password defined at the `.env` file
 
 cleanup
 
 ```shell
 docker compose down
 ```
-
-## Super Admin example
-
-> To be defined on the first access
-
-- name: `Super Admin`
-
-- email: `admin@directus.io`
-
-- password: `Admin987654321`
 
 ## Useful References
 
@@ -66,3 +54,7 @@ docker compose down
   - [Understanding Kubernetes | Tutorials / Tips & Tricks - Directus Docs](https://directus.io/docs/tutorials/tips-and-tricks/understanding-kubernetes)
 
 - [Deploying DIRECTUS CMS to a Linux Server Using Docker and Nginx as a Reverse Proxy, and Cerbot for SSL. | by TechWithTwin - Medium](https://medium.com/@techwithtwin/deploying-directus-cms-to-a-linux-server-using-docker-and-nginx-as-a-reverse-proxy-and-cerbot-for-ff2eb267497c)
+
+- [Self-hosting Directus with Docker on a Ubuntu Server | Sliplane](https://sliplane.io/blog/self-hosting-directus-with-docker-on-ubuntu-server)
+
+- [[GitHub] ahmedShawareb567/zid-grow-website](https://github.com/ahmedShawareb567/zid-grow-website) - A modern, headless Next.js website powered by Directus CMS. This project showcases a scalable architecture for building dynamic content-driven websites with server-side rendering and real-time CMS integration.
