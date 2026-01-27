@@ -58,3 +58,9 @@ docker compose down
 - [Self-hosting Directus with Docker on a Ubuntu Server | Sliplane](https://sliplane.io/blog/self-hosting-directus-with-docker-on-ubuntu-server)
 
 - [[GitHub] ahmedShawareb567/zid-grow-website](https://github.com/ahmedShawareb567/zid-grow-website) - A modern, headless Next.js website powered by Directus CMS. This project showcases a scalable architecture for building dynamic content-driven websites with server-side rendering and real-time CMS integration.
+
+### PostgreSQL
+
+- [How to Backup a PostgreSQL Database in Docker: Step-by-Step Guide | DEV Community](https://dev.to/mdarifulhaque/how-to-backup-a-postgresql-database-in-docker-step-by-step-guide-cp2)
+
+- [Dump & Restore PostgreSQL database in a Docker | Peter's Notes](https://petersnotes.com/posts/dump--restore-postgresql-database-in-a-docker/)
