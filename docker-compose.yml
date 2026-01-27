@@ -3,14 +3,16 @@ name: directuscms
 services:
   directus:
     image: directus/directus:11.14.1
+    env_file:
+      - .env
     ports:
-      - 8055:8055
+      - ${DIRECTUS_PORT}:8055
     volumes:
       - ./database:/directus/database
       - ./uploads:/directus/uploads
       - ./extensions:/directus/extensions
     environment:
-      SECRET: "replace-with-random-value"
+      WEBSOCKETS_ENABLED: "${DIRECTUS_WEBSOCKETS_ENABLED}"
+      SECRET: "${DIRECTUS_SECRET}"
       DB_CLIENT: "sqlite3"
       DB_FILENAME: "/directus/database/data.sqlite3"
-      WEBSOCKETS_ENABLED: "true"
