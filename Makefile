@@ -95,9 +95,6 @@ setup-base-dirs:
 DOCKER_DB_CONTAINER_NAME := directuscms-database-1
 DB_BACKUP_FILE := database/backup.sql
 
-test:
-	@echo "$(DB_BACKUP_FILE)"
-
 pg-backup: docker-up check-dir-database
 	docker exec -t $(DOCKER_DB_CONTAINER_NAME) pg_dump -U $(DATABASE_USERNAME) $(DATABASE_NAME) --clean > $(DB_BACKUP_FILE)
 
