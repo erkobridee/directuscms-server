@@ -92,13 +92,19 @@ setup-base-dirs:
 
 #-------------------------------------------------------------------------------
 
+DOCKER_DB_CONTAINER_NAME := directuscms-database-1
+DB_BACKUP_FILE := database/backup.sql
+
+test:
+	@echo "$(DB_BACKUP_FILE)"
+
 pg-backup: docker-up check-dir-database
-	docker exec -t directuscms-database-1 pg_dump -U $(DATABASE_USERNAME) $(DATABASE_NAME) --clean > database/backup.sql
+	docker exec -t $(DOCKER_DB_CONTAINER_NAME) pg_dump -U $(DATABASE_USERNAME) $(DATABASE_NAME) --clean > $(DB_BACKUP_FILE)
 
 pg-restore: docker-up
-	@if [ -f "database/backup.sql" ]; then\
+	@if [ -f "$(DB_BACKUP_FILE)" ]; then\
 		echo "Restoring the backup...\n";\
-		cat database/backup.sql | docker exec -i directuscms-database-1 psql -U $(DATABASE_USERNAME) -d $(DATABASE_NAME);\
+		cat $(DB_BACKUP_FILE) | docker exec -i $(DOCKER_DB_CONTAINER_NAME) psql -U $(DATABASE_USERNAME) -d $(DATABASE_NAME);\
 		echo "\nDatabase restored.";\
 	else\
 		echo "There is no database backup available.";\
