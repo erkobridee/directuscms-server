@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict kknSjbkkhS9ylBVDVVOhhCpuc5LCSigEyYlonCeaT2ubYOGImmVn238hRV5dP8o
+\restrict 8e0bm2jTGFLSPDt49uij4E9znHaEettjJaaeEaKfCaiRjXrRsdXsYfPyIyCHBRg
 
 -- Dumped from database version 17.7
 -- Dumped by pg_dump version 17.7
@@ -19,6 +19,125 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+ALTER TABLE ONLY public.directus_versions DROP CONSTRAINT directus_versions_user_updated_foreign;
+ALTER TABLE ONLY public.directus_versions DROP CONSTRAINT directus_versions_user_created_foreign;
+ALTER TABLE ONLY public.directus_versions DROP CONSTRAINT directus_versions_collection_foreign;
+ALTER TABLE ONLY public.directus_users DROP CONSTRAINT directus_users_role_foreign;
+ALTER TABLE ONLY public.directus_shares DROP CONSTRAINT directus_shares_user_created_foreign;
+ALTER TABLE ONLY public.directus_shares DROP CONSTRAINT directus_shares_role_foreign;
+ALTER TABLE ONLY public.directus_shares DROP CONSTRAINT directus_shares_collection_foreign;
+ALTER TABLE ONLY public.directus_settings DROP CONSTRAINT directus_settings_storage_default_folder_foreign;
+ALTER TABLE ONLY public.directus_settings DROP CONSTRAINT directus_settings_public_registration_role_foreign;
+ALTER TABLE ONLY public.directus_settings DROP CONSTRAINT directus_settings_public_foreground_foreign;
+ALTER TABLE ONLY public.directus_settings DROP CONSTRAINT directus_settings_public_favicon_foreign;
+ALTER TABLE ONLY public.directus_settings DROP CONSTRAINT directus_settings_public_background_foreign;
+ALTER TABLE ONLY public.directus_settings DROP CONSTRAINT directus_settings_project_logo_foreign;
+ALTER TABLE ONLY public.directus_sessions DROP CONSTRAINT directus_sessions_user_foreign;
+ALTER TABLE ONLY public.directus_sessions DROP CONSTRAINT directus_sessions_share_foreign;
+ALTER TABLE ONLY public.directus_roles DROP CONSTRAINT directus_roles_parent_foreign;
+ALTER TABLE ONLY public.directus_revisions DROP CONSTRAINT directus_revisions_version_foreign;
+ALTER TABLE ONLY public.directus_revisions DROP CONSTRAINT directus_revisions_parent_foreign;
+ALTER TABLE ONLY public.directus_revisions DROP CONSTRAINT directus_revisions_activity_foreign;
+ALTER TABLE ONLY public.directus_presets DROP CONSTRAINT directus_presets_user_foreign;
+ALTER TABLE ONLY public.directus_presets DROP CONSTRAINT directus_presets_role_foreign;
+ALTER TABLE ONLY public.directus_permissions DROP CONSTRAINT directus_permissions_policy_foreign;
+ALTER TABLE ONLY public.directus_panels DROP CONSTRAINT directus_panels_user_created_foreign;
+ALTER TABLE ONLY public.directus_panels DROP CONSTRAINT directus_panels_dashboard_foreign;
+ALTER TABLE ONLY public.directus_operations DROP CONSTRAINT directus_operations_user_created_foreign;
+ALTER TABLE ONLY public.directus_operations DROP CONSTRAINT directus_operations_resolve_foreign;
+ALTER TABLE ONLY public.directus_operations DROP CONSTRAINT directus_operations_reject_foreign;
+ALTER TABLE ONLY public.directus_operations DROP CONSTRAINT directus_operations_flow_foreign;
+ALTER TABLE ONLY public.directus_notifications DROP CONSTRAINT directus_notifications_sender_foreign;
+ALTER TABLE ONLY public.directus_notifications DROP CONSTRAINT directus_notifications_recipient_foreign;
+ALTER TABLE ONLY public.directus_folders DROP CONSTRAINT directus_folders_parent_foreign;
+ALTER TABLE ONLY public.directus_flows DROP CONSTRAINT directus_flows_user_created_foreign;
+ALTER TABLE ONLY public.directus_files DROP CONSTRAINT directus_files_uploaded_by_foreign;
+ALTER TABLE ONLY public.directus_files DROP CONSTRAINT directus_files_modified_by_foreign;
+ALTER TABLE ONLY public.directus_files DROP CONSTRAINT directus_files_folder_foreign;
+ALTER TABLE ONLY public.directus_dashboards DROP CONSTRAINT directus_dashboards_user_created_foreign;
+ALTER TABLE ONLY public.directus_comments DROP CONSTRAINT directus_comments_user_updated_foreign;
+ALTER TABLE ONLY public.directus_comments DROP CONSTRAINT directus_comments_user_created_foreign;
+ALTER TABLE ONLY public.directus_collections DROP CONSTRAINT directus_collections_group_foreign;
+ALTER TABLE ONLY public.directus_access DROP CONSTRAINT directus_access_user_foreign;
+ALTER TABLE ONLY public.directus_access DROP CONSTRAINT directus_access_role_foreign;
+ALTER TABLE ONLY public.directus_access DROP CONSTRAINT directus_access_policy_foreign;
+DROP INDEX public.directus_revisions_parent_index;
+DROP INDEX public.directus_revisions_activity_index;
+DROP INDEX public.directus_activity_timestamp_index;
+ALTER TABLE ONLY public.directus_versions DROP CONSTRAINT directus_versions_pkey;
+ALTER TABLE ONLY public.directus_users DROP CONSTRAINT directus_users_token_unique;
+ALTER TABLE ONLY public.directus_users DROP CONSTRAINT directus_users_pkey;
+ALTER TABLE ONLY public.directus_users DROP CONSTRAINT directus_users_external_identifier_unique;
+ALTER TABLE ONLY public.directus_users DROP CONSTRAINT directus_users_email_unique;
+ALTER TABLE ONLY public.directus_translations DROP CONSTRAINT directus_translations_pkey;
+ALTER TABLE ONLY public.directus_shares DROP CONSTRAINT directus_shares_pkey;
+ALTER TABLE ONLY public.directus_settings DROP CONSTRAINT directus_settings_pkey;
+ALTER TABLE ONLY public.directus_sessions DROP CONSTRAINT directus_sessions_pkey;
+ALTER TABLE ONLY public.directus_roles DROP CONSTRAINT directus_roles_pkey;
+ALTER TABLE ONLY public.directus_revisions DROP CONSTRAINT directus_revisions_pkey;
+ALTER TABLE ONLY public.directus_relations DROP CONSTRAINT directus_relations_pkey;
+ALTER TABLE ONLY public.directus_presets DROP CONSTRAINT directus_presets_pkey;
+ALTER TABLE ONLY public.directus_policies DROP CONSTRAINT directus_policies_pkey;
+ALTER TABLE ONLY public.directus_permissions DROP CONSTRAINT directus_permissions_pkey;
+ALTER TABLE ONLY public.directus_panels DROP CONSTRAINT directus_panels_pkey;
+ALTER TABLE ONLY public.directus_operations DROP CONSTRAINT directus_operations_resolve_unique;
+ALTER TABLE ONLY public.directus_operations DROP CONSTRAINT directus_operations_reject_unique;
+ALTER TABLE ONLY public.directus_operations DROP CONSTRAINT directus_operations_pkey;
+ALTER TABLE ONLY public.directus_notifications DROP CONSTRAINT directus_notifications_pkey;
+ALTER TABLE ONLY public.directus_migrations DROP CONSTRAINT directus_migrations_pkey;
+ALTER TABLE ONLY public.directus_folders DROP CONSTRAINT directus_folders_pkey;
+ALTER TABLE ONLY public.directus_flows DROP CONSTRAINT directus_flows_pkey;
+ALTER TABLE ONLY public.directus_flows DROP CONSTRAINT directus_flows_operation_unique;
+ALTER TABLE ONLY public.directus_files DROP CONSTRAINT directus_files_pkey;
+ALTER TABLE ONLY public.directus_fields DROP CONSTRAINT directus_fields_pkey;
+ALTER TABLE ONLY public.directus_extensions DROP CONSTRAINT directus_extensions_pkey;
+ALTER TABLE ONLY public.directus_dashboards DROP CONSTRAINT directus_dashboards_pkey;
+ALTER TABLE ONLY public.directus_comments DROP CONSTRAINT directus_comments_pkey;
+ALTER TABLE ONLY public.directus_collections DROP CONSTRAINT directus_collections_pkey;
+ALTER TABLE ONLY public.directus_activity DROP CONSTRAINT directus_activity_pkey;
+ALTER TABLE ONLY public.directus_access DROP CONSTRAINT directus_access_pkey;
+ALTER TABLE public.directus_settings ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.directus_revisions ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.directus_relations ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.directus_presets ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.directus_permissions ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.directus_notifications ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.directus_fields ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE public.directus_activity ALTER COLUMN id DROP DEFAULT;
+DROP TABLE public.directus_versions;
+DROP TABLE public.directus_users;
+DROP TABLE public.directus_translations;
+DROP TABLE public.directus_shares;
+DROP SEQUENCE public.directus_settings_id_seq;
+DROP TABLE public.directus_settings;
+DROP TABLE public.directus_sessions;
+DROP TABLE public.directus_roles;
+DROP SEQUENCE public.directus_revisions_id_seq;
+DROP TABLE public.directus_revisions;
+DROP SEQUENCE public.directus_relations_id_seq;
+DROP TABLE public.directus_relations;
+DROP SEQUENCE public.directus_presets_id_seq;
+DROP TABLE public.directus_presets;
+DROP TABLE public.directus_policies;
+DROP SEQUENCE public.directus_permissions_id_seq;
+DROP TABLE public.directus_permissions;
+DROP TABLE public.directus_panels;
+DROP TABLE public.directus_operations;
+DROP SEQUENCE public.directus_notifications_id_seq;
+DROP TABLE public.directus_notifications;
+DROP TABLE public.directus_migrations;
+DROP TABLE public.directus_folders;
+DROP TABLE public.directus_flows;
+DROP TABLE public.directus_files;
+DROP SEQUENCE public.directus_fields_id_seq;
+DROP TABLE public.directus_fields;
+DROP TABLE public.directus_extensions;
+DROP TABLE public.directus_dashboards;
+DROP TABLE public.directus_comments;
+DROP TABLE public.directus_collections;
+DROP SEQUENCE public.directus_activity_id_seq;
+DROP TABLE public.directus_activity;
+DROP TABLE public.directus_access;
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -1067,6 +1186,7 @@ abf8a154-5b1c-4a46-ac9c-7300570f4f17	$t:public_label	public	$t:public_descriptio
 --
 
 COPY public.directus_presets (id, bookmark, "user", role, collection, search, layout, layout_query, layout_options, refresh_interval, filter, icon, color) FROM stdin;
+1	\N	6f80ba49-1630-403d-811a-9a0e0c119dbb	\N	directus_users	\N	cards	{"cards":{"sort":["email"],"page":1}}	{"cards":{"icon":"account_circle","title":"{{ first_name }} {{ last_name }}","subtitle":"{{ email }}","size":4}}	\N	\N	bookmark	\N
 \.
 
 
@@ -1101,7 +1221,8 @@ COPY public.directus_roles (id, name, icon, description, parent) FROM stdin;
 --
 
 COPY public.directus_sessions (token, "user", expires, ip, user_agent, share, origin, next_token) FROM stdin;
-pEjeTV_HwvFoEgczU4sRfj2DNd9XEWH5xYoJpfbwFt3dyGPUXV_UFszRTIWUKyoG	6f80ba49-1630-403d-811a-9a0e0c119dbb	2026-02-03 15:21:57.183+00	172.19.0.1	Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
+RaVMGC1FZ_JgkofYwi_M-moYjJG9xKyfSqJGDl09GApY2OlpO53YsQhyxiO699kM	6f80ba49-1630-403d-811a-9a0e0c119dbb	2026-01-28 10:29:05.517+00	172.19.0.1	Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36	\N	http://localhost:8055	nHXVqltdMZzX0EizJqp91pmh6GxOaD6--00A5_cpcWmvZ8GO5Dce0iONdFjjS0Lq
+nHXVqltdMZzX0EizJqp91pmh6GxOaD6--00A5_cpcWmvZ8GO5Dce0iONdFjjS0Lq	6f80ba49-1630-403d-811a-9a0e0c119dbb	2026-01-29 10:28:55.517+00	172.19.0.1	Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 \.
 
 
@@ -1135,7 +1256,7 @@ COPY public.directus_translations (id, language, key, value) FROM stdin;
 --
 
 COPY public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides, text_direction) FROM stdin;
-6f80ba49-1630-403d-811a-9a0e0c119dbb	Admin	User	admin@directus.io	$argon2id$v=19$m=65536,t=3,p=4$oujjgTaZvT3p79FRgIVolg$pO8cVVZruVptG4km3YqtA19/+P7YbSV6/r5uawNF4pg	\N	\N	\N	\N	\N	\N	\N	active	3f3cef21-b0a7-4b77-b21d-e92931e80672	\N	2026-01-27 15:21:57.204+00	/settings/data-model	default	\N	\N	t	\N	\N	\N	\N	\N	auto
+6f80ba49-1630-403d-811a-9a0e0c119dbb	Admin	User	admin@directus.io	$argon2id$v=19$m=65536,t=3,p=4$oujjgTaZvT3p79FRgIVolg$pO8cVVZruVptG4km3YqtA19/+P7YbSV6/r5uawNF4pg	\N	\N	\N	\N	\N	\N	\N	active	3f3cef21-b0a7-4b77-b21d-e92931e80672	\N	2026-01-28 10:28:55.525+00	/content	default	\N	\N	t	\N	\N	\N	\N	\N	auto
 \.
 
 
@@ -1820,5 +1941,5 @@ ALTER TABLE ONLY public.directus_versions
 -- PostgreSQL database dump complete
 --
 
-\unrestrict kknSjbkkhS9ylBVDVVOhhCpuc5LCSigEyYlonCeaT2ubYOGImmVn238hRV5dP8o
+\unrestrict 8e0bm2jTGFLSPDt49uij4E9znHaEettjJaaeEaKfCaiRjXrRsdXsYfPyIyCHBRg
 
