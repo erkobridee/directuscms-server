@@ -8,6 +8,10 @@ Testing of [Directus](https://directus.io/) CMS
 
 ## Project setup
 
+1\. `cp .env.example .env` if the `.env` is not present then update its values
+
+2\. setup ( restore the database if the backupt is present )
+
 ```shell
 make
 ```
