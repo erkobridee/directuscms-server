@@ -9,16 +9,6 @@ Testing of [Directus](https://directus.io/) CMS
 ## Project setup
 
 ```shell
-
-mkdir extensions
-
-mkdir uploads
-
-```
-
-or
-
-```shell
 make
 ```
 
